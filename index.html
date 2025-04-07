@@ -130,12 +130,28 @@
             flex-direction: column;
             z-index: 900;
             transition: opacity 0.5s ease, transform 0.5s ease;
+
+
         }
 
         .window-music {
             position: absolute;
             max-width: 350px;
             width: 500px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .window-contact {
+            position: absolute;
+            width: 300px;
+            max-height: 500px;
             background: white;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -461,6 +477,24 @@ nav ul li a:hover {
     transition: all 0.3s ease; /* Smooth transition pour déplacer la corbeille */
 }
 
+.window-content a{
+    color: #007BFF;
+    text-decoration: none;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  20% { transform: translate(-3px, 0px) rotate(-5deg); }
+  40% { transform: translate(3px, 0px) rotate(5deg); }
+  60% { transform: translate(-3px, 0px) rotate(-5deg); }
+  80% { transform: translate(3px, 0px) rotate(5deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
 
 
 
@@ -549,15 +583,26 @@ nav ul li a:hover {
             <p>Ma Playlist</p>
         </div>
 
-        <div class="folder" style="top: 200px; right: 20px;">
+        <div class="folder" style="top: 200px; right: 20px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
             <img src="photo/vignette2.png" alt="Invariant">
             <p>Contact</p>
         </div>
 
-        <div class="folder" style="top: 350px; right: 20px;">
-            <img src="photo/vignette2.png" alt="Invariant">
-            <p>Curriculum</p>
+        <div class="folder" style="top: 350px; right: 20px;" ondblclick="openWindow('Dossier 21')" onmousedown="startDrag(event, this)">
+            <img src="photo/vignette2.png" alt="Dossier">
+            <p>About</p>
         </div>
+
+        <div class="folder" style="top: 500px; right: 300px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/vignette2.png" alt="Dossier">
+            <p>Barbie_mariposa streaming_vf</p>
+        </div>
+
+        
+
+        
 
         
 
@@ -567,8 +612,9 @@ nav ul li a:hover {
     <nav>
         <ul>
             <li><a href="#">Leïa Bessad</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Télécharger mon CV</a></li>
+            <li><a onclick="window.location.href='activations.html';">Activations</a></li>
+            <li><a href="#">3D</a></li>
+            <li><a href="#">Branding</a></li>
         </ul>
     </nav>
 
@@ -576,10 +622,10 @@ nav ul li a:hover {
     <script>
     const dossiers = {
     'Dossier 1': {
-        description: "Le terme mayonnaise est protégée par la FDA (Food and Drugs Administration) pour des raisons qualitatives. Si Hellmann’s fait de la vraie mayonnaise, pourquoi les gens continuent-ils à appeler vulgairement leur Real Mayonnaise « mayo » ?<br>Avec la campagne Ain’t Your “Mayo” la marque abandonne son étiquette classique afin de faire un rappel sur sa véritable nature, gage d'excellence culinaire. Ceux qui ont osé parler sur X de la mayonnaise d'Hellmann’s en utilisant le terme 'mayo' sont exposés sur un billboard à Times Square. Pour effacer leur nom de l’affiche, les fans doivent faire des excuses publiques sur les réseaux sociaux. Et pour chaque excuse, Hellmann’s enverra un pot « Apology Accepted » en édition limitée. Une fois le billboard vidé, l’étiquette classique revient Dorénavant, tout le monde se souviendra qu'il faut appeler la Real Mayonnaise d'Hellmann's par son nom complet. <br>Parce qu'Hellmann's ne fait pas de la simple 'mayo'. Il fait de la vraie mayonnaise.",
+        description: "Le terme 'mayonnaise' est protégé par la FDA pour des raisons de qualité, et Hellmann's répond à ces critères, fier de son produit phare : la Real Mayonnaise. Pourtant, malgré cette appellation précise et méritée, beaucoup continuent de l'appeler vulgairement « mayo ». <br>Pour remédier à cette tendance, la marque lance la campagne <br>« Ain’t Your ‘Mayo’ », où elle abandonne temporairement son étiquette classique pour rappeler la véritable nature de son produit, gage d'excellence culinaire. Ceux qui ont osé parler sur X de la mayonnaise d'Hellmann’s en utilisant le terme 'mayo' sont exposés sur un billboard à Times Square et doivent publier des excuses pour en disparaître.<br><br>Grâce à l’activation, tout le monde se souviendra qu'il faut appeler la Real Mayonnaise d'Hellmann's par son nom complet. <br>Parce qu'Hellmann's ne fait pas de la simple 'mayo'. Il fait de la vraie mayonnaise.",
         images: ['photo/hellmanns/Board_1 copie.jpg', 'photo/hellmanns/Board_2 copie.jpg', 'photo/hellmanns/Board_3 copie.jpg','photo/hellmanns/Board_4 copie.jpg','photo/hellmanns/Board_5 copie.jpg', 'photo/miniature/hellmann.png'],
         type: 'ACTIVATION',
-        video: 'src="https://youtu.be/X-5ET_ffby4"',
+        video: 'https://youtu.be/X-5ET_ffby4', // Remplace par ton lien YouTube
         poster:'photo/miniature/hellmann.png',
         projectFamily: 'Case',
         projectName: "Ain't Your Mayo",  // Nom du projet
@@ -624,7 +670,7 @@ nav ul li a:hover {
 
 
     'Dossier 4': {
-    description: "Poster series for the 2024 Vintage Computer Festival in Berlin. For these promotional posters, I advocated an aesthetic that blends 3D and digital elements. I intentionally introduced glitches that appeared during the image processing. The chosen fonts and effects are vintage, evoking the past era celebrated by the festival.",
+    description: "Série d’affiches pour le Vintage Computer Festival 2024 à Berlin. Pour ces affiches promotionnelles, j’ai préconisé une esthétique qui mêle des éléments 3D et numériques. J’ai intentionnellement préservé et introduit des bugs et des glitchs, apparus pendant le traitement de l’image. Les typos et effets choisis évoquent l’époque célébrée par le festival.",
     images: ['photo/VCF1.png', 'photo/VCF2.png', 'photo/VCF3.png','photo/VCF4.png'],
     type: 'Affiches',
     projectName: 'Vintage Computer Festival'  // Nom du projet
@@ -655,6 +701,19 @@ nav ul li a:hover {
         description: 'Application de rencontre',
         image: 'photo/steinkrebse.png',
         projectName: 'Odla'  // Nom du projet
+    },
+
+
+    'Dossier 20': {
+        projectName: 'Contact'  // Nom du projet
+    },
+
+    'Dossier 21': {
+        projectName: 'About'  // Nom du projet
+    },
+
+    'Dossier 22': {
+        projectName: 'Barbie'  // Nom du projet
     },
 };
 
@@ -709,15 +768,14 @@ function openWindow(dossierName) {
     openWindows.push(windowText);
 
 
-     // Fenêtre de vidéo
-     if (dossier.video) {
-        const windowVideo = document.createElement("div");
-        windowVideo.classList.add("window-video2");
-        windowVideo.style.zIndex = 900; // Défini bas par défaut
-        windowVideo.onclick = () => bringToFront(windowVideo);
-        document.body.appendChild(windowVideo);
-        openWindows.push(windowVideo);
-
+   // Fenêtre de vidéo
+if (dossier.video) {
+    const windowVideo = document.createElement("div");
+    windowVideo.classList.add("window-video2");
+    windowVideo.style.zIndex = 900; // Défini bas par défaut
+    windowVideo.onclick = () => bringToFront(windowVideo);
+    document.body.appendChild(windowVideo);
+    openWindows.push(windowVideo);
 
     // Applique les positions personnalisées si elles existent
     if (dossier.videoPosition) {
@@ -728,34 +786,67 @@ function openWindow(dossierName) {
         windowVideo.style.left = "650px";
     }
 
-    windowVideo.innerHTML = `
-        <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
-            <div class="buttons">
-                <div class="close" onclick="closeWindow(this)"></div>
-                <div class="minimize"></div>
-                <div class="maximize"></div>
+    // Vérifie si la vidéo est un lien YouTube ou une vidéo locale
+    if (dossier.video.includes("youtube.com") || dossier.video.includes("youtu.be")) {
+        const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = dossier.video.match(regex);
+
+        if (match && match[1]) {
+            const videoId = match[1]; // L'ID de la vidéo YouTube
+            const iframe = document.createElement("iframe");
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+
+            // Remplacer le contenu de la fenêtre par l'iframe YouTube
+            windowVideo.innerHTML = `
+                <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+                    <div class="buttons">
+                        <div class="close" onclick="closeWindow(this)"></div>
+                        <div class="minimize"></div>
+                        <div class="maximize"></div>
+                    </div>
+                    <span class="window-title">${dossier.projectFamily}</span> <!-- Affiche le projectName -->
+                </div>
+                <div class="window-content video">
+                    ${iframe.outerHTML} <!-- Ajoute l'iframe YouTube -->
+                </div>
+            `;
+        } else {
+            console.error("L'ID de la vidéo YouTube n'a pas pu être extrait.");
+        }
+    } else {
+        // Si ce n'est pas un lien YouTube, utilise une balise <video> classique
+        windowVideo.innerHTML = `
+            <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+                <div class="buttons">
+                    <div class="close" onclick="closeWindow(this)"></div>
+                    <div class="minimize"></div>
+                    <div class="maximize"></div>
+                </div>
+                <span class="window-title">${dossier.projectFamily}</span> <!-- Affiche le projectName -->
             </div>
-            <span class="window-title">${dossier.projectFamily}</span>
-        </div>
-        <div class="window-content video">
-            <video controls poster="${dossier.poster}">
-                <source src="${dossier.video}" type="video/mp4">
-            </video>
-        </div>
-    `;
+            <div class="window-content video">
+                <video controls poster="${dossier.poster}">
+                    <source src="${dossier.video}" type="video/mp4">
+                </video>
+            </div>
+        `;
+    }
 
     document.body.appendChild(windowVideo);
     openWindows.push(windowVideo);
 }
-    
 
-    // Vérification de l'existence de vidéos
+
+// Fenêtre de vidéo pour plusieurs vidéos dans un dossier
 if (dossier.videos && dossier.videos.length > 0) {
     console.log(`Dossier ${dossierName} contient ${dossier.videos.length} vidéos`);
 
     // Fenêtres de vidéo (multiples vidéos si nécessaire)
-    // Vérification pour plusieurs vidéos
-if (dossier.videos && dossier.videos.length > 0) {
     dossier.videos.forEach((videoSrc, index) => {
         const windowVideo = document.createElement("div");
         windowVideo.classList.add("window-video2");
@@ -763,7 +854,6 @@ if (dossier.videos && dossier.videos.length > 0) {
         windowVideo.onclick = () => bringToFront(windowVideo);
         document.body.appendChild(windowVideo);
         openWindows.push(windowVideo);
-
 
         // Vérifie si une position spécifique existe pour cette vidéo
         if (dossier.videosPositions && dossier.videosPositions[index]) {
@@ -774,27 +864,63 @@ if (dossier.videos && dossier.videos.length > 0) {
             windowVideo.style.left = `${500 + index * 50}px`;
         }
 
-        windowVideo.innerHTML = `
-            <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
-                <div class="buttons">
-                    <div class="close" onclick="closeWindow(this)"></div>
-                    <div class="minimize"></div>
-                    <div class="maximize"></div>
+        // Vérifie si c'est un lien YouTube ou une vidéo locale
+        if (videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be")) {
+            const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            const match = videoSrc.match(regex);
+
+            if (match && match[1]) {
+                const videoId = match[1]; // L'ID de la vidéo YouTube
+                const iframe = document.createElement("iframe");
+                iframe.width = "560";
+                iframe.height = "315";
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+
+                // Remplacer le contenu de la fenêtre par l'iframe YouTube
+                windowVideo.innerHTML = `
+                    <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+                        <div class="buttons">
+                            <div class="close" onclick="closeWindow(this)"></div>
+                            <div class="minimize"></div>
+                            <div class="maximize"></div>
+                        </div>
+                        <span class="window-title">${dossier.projectFamily[index]}</span> <!-- Titre personnalisé ici -->
+                    </div>
+                    <div class="window-content video">
+                        ${iframe.outerHTML} <!-- Ajoute l'iframe YouTube -->
+                    </div>
+                `;
+            } else {
+                console.error("L'ID de la vidéo YouTube n'a pas pu être extrait.");
+            }
+        } else {
+            // Si ce n'est pas un lien YouTube, utilise une balise <video> classique
+            windowVideo.innerHTML = `
+                <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+                    <div class="buttons">
+                        <div class="close" onclick="closeWindow(this)"></div>
+                        <div class="minimize"></div>
+                        <div class="maximize"></div>
+                    </div>
+                    <span class="window-title">${dossier.projectFamily[index]}</span> <!-- Titre personnalisé ici -->
                 </div>
-                <span class="window-title">${dossier.projectFamily[index]}</span>
-            </div>
-            <div class="window-content video">
-                <video controls poster="${dossier.posters[index]}">
-                    <source src="${videoSrc}" type="video/mp4">
-                </video>
-            </div>
-        `;
+                <div class="window-content video">
+                    <video controls poster="${dossier.posters[index]}">
+                        <source src="${videoSrc}" type="video/mp4">
+                    </video>
+                </div>
+            `;
+        }
 
         document.body.appendChild(windowVideo);
         openWindows.push(windowVideo);
     });
 }
-}
+
+
 
 
     // Fenêtre d'images avec diaporama (si présent)
@@ -891,7 +1017,7 @@ openWindows.push(closeAllWindow);
 
 
         function closeWindow(button) {
-        const windowDiv = button.closest(".window, .window-music, .window-photo, .window-video, .window-video2"); // Sélectionne aussi les fenêtres musicales
+        const windowDiv = button.closest(".window, .window-music, .window-photo, .window-video, .window-video2, .window-contact"); // Sélectionne aussi les fenêtres musicales
         if (windowDiv) {
         windowDiv.style.transform = "scale(0.9)";
         windowDiv.style.opacity = "0";
@@ -966,6 +1092,33 @@ openWindows.push(closeAllWindow);
         
 
          
+
+ // Ouvre la fenêtre de contact
+ function openContactWindow() {
+    const windowDiv = document.createElement("div");
+    windowDiv.classList.add("window-contact");
+    windowDiv.style.top = "300px";
+    windowDiv.style.right = "100px";
+    windowDiv.innerHTML = `
+        <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+            <div class="buttons">
+                <div class="close" onclick="closeWindow(this)"></div>
+                <div class="minimize"></div>
+                <div class="maximize"></div>
+            </div>
+            <span class="window-title">Contact</span>
+        </div>
+        <div class="window-content">
+        
+       Mail : leia.bessad@gmail.com <br>Instagram : <a href="https://www.instagram.com/leia_kin/" > leia_kin </a> <br> Linkedin : <a href="https://www.linkedin.com/in/leïa-bessad" > Leïa </a> <br> Onlyfan : <a href="lien" > Leyo </a>
+       
+        </div>
+        </div>
+    `;
+    document.body.appendChild(windowDiv);
+}
+
+
 
         // Ouvre la fenêtre de la playlist
 function openPlaylistWindow() {
@@ -1118,7 +1271,21 @@ function moveHoverImage() {
     requestAnimationFrame(moveHoverImage);
 }
 
-     
+
+
+
+function shakeFolder(element) {
+  element.classList.add('shake');
+
+  // Supprime la classe après l’animation pour pouvoir la relancer
+  setTimeout(() => {
+    element.classList.remove('shake');
+  }, 500); // même durée que dans l’animation CSS
+}
+
+
+
+        
        
     </script>
 </body>
