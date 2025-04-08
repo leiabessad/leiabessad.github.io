@@ -478,6 +478,11 @@ nav ul li a:hover {
 }
 
 .window-content a{
+    color: black;
+    text-decoration: none;
+}
+
+.window-content a:hover{
     color: #007BFF;
     text-decoration: none;
 }
@@ -494,6 +499,52 @@ nav ul li a:hover {
 .shake {
   animation: shake 0.5s ease;
 }
+
+.notif {
+  position: fixed;
+  top: 20px;
+  right: 200px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #888;
+  font-size: 12px ;
+  text-transform: uppercase;
+  animation: fadeInUp 0.4s ease;
+}
+
+::selection {
+    color: #fff;
+    background: #ff95cc;
+    }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes jumpShake {
+  0%   { transform: translateY(0) rotate(0deg); }
+  10%  { transform: translateY(-12px) rotate(-5deg); }
+  20%  { transform: translateY(-25px) rotate(5deg); }
+  30%  { transform: translateY(-16px) rotate(-3deg); }
+  40%  { transform: translateY(-12px) rotate(3deg); }
+  50%  { transform: translateY(-6px) rotate(0deg); }
+  60%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+.jump-alert {
+  animation: jumpShake 1s ease-in-out infinite;
+}
+
+
 
 
 
@@ -556,12 +607,12 @@ nav ul li a:hover {
         <p>Fenty Skin</p>
          </div>
 
-         <div class="folder" style="top: 500px; left: 50px;" 
+       <!--  <div class="folder" style="top: 500px; left: 50px;" 
         ondblclick="openWindow('Dossier 7')" 
         onmousedown="startDrag(event, this)">
         <img src="photo/vignette2.png" alt="Dossier">
         <p>Odla</p>
-         </div>
+         </div> -->
 
          <div class="folder" style="top: 500px; left: 175px;" 
         ondblclick="openWindow('Dossier 8')" 
@@ -588,20 +639,33 @@ nav ul li a:hover {
             <p>Contact</p>
         </div>
 
-        <div class="folder" style="top: 350px; right: 20px;" ondblclick="openWindow('Dossier 21')" onmousedown="startDrag(event, this)">
-            <img src="photo/vignette2.png" alt="Dossier">
-            <p>About</p>
-        </div>
+        <div id="aboutFolder" class="folder" style="top: 350px; right: 20px;"
+     ondblclick="openWindow('Dossier 21')"
+     onmousedown="startDrag(event, this)">
+  <img src="photo/vignette2.png" alt="Dossier">
+  <p>About</p>
+</div>
+
+
 
         <div class="folder" style="top: 500px; right: 300px;"
         onmousedown="startDrag(event, this)"
         ondblclick="shakeFolder(this)">
-            <img src="photo/vignette2.png" alt="Dossier">
+            <img src="photo/mariposa.png" alt="Dossier">
             <p>Barbie_mariposa streaming_vf</p>
         </div>
 
-        
+        <div class="folder" style="top: 350px; right: 500px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/fichier.png" alt="Dossier">
+            <p>logo_vfffffff lacvraimentlebon final</p>
+        </div>
 
+        
+        <div id="fakeNotif" class="notif hidden">
+            <p>Website Coded from scratch</p>
+          </div>
         
 
         
@@ -691,16 +755,23 @@ nav ul li a:hover {
 
 
     'Dossier 6': {
-        description: 'Visuels 3D',
+        description: "Projet personnel de réalisation de visuels publicitaires pour le lip oil de la marque Fenty Skin. Réalisés entièrement en 3D sur Blender, ces visuels s'imprègnent de l'esprit estival, rafraîchissant et coloré que la marque met en avant sur ces réseaux sociaux. Ici, j'ai voulu faire un parallèle et par métaphore faire paraître le lip oil aussi rafraîchissant et agréable que le fait de boire un cocktail en été.",
         type: 'Visuels 3D',
         images: [ 'photo/fenty/liquid0.png', 'photo/fenty/liquid1.png', 'photo/fenty/liquid2.png' ],
         projectName: 'Fenty Skin'  // Nom du projet
     },
 
-    'Dossier 7': {
-        description: 'Application de rencontre',
-        image: 'photo/steinkrebse.png',
-        projectName: 'Odla'  // Nom du projet
+   // 'Dossier 7': {
+    //    description: 'Application de rencontre',
+    //    image: 'photo/steinkrebse.png',
+    //    projectName: 'Odla'  // Nom du projet
+   // },
+
+   'Dossier 8': {
+        description: "Réalisation de visuels publicitaires pour le nouveau hot gloss de la marque Martine Cosmetics. Réalisés entièrement en 3D sur Blender, ces visuels jouent sur l'oxymore qui existe entre le nom du gloss et l'effet rafraîchissant qu'il a une fois appliqué sur les lèvres. J'ai fait correspondre ces visuels à la direction artistique du Instagram de la marque.",
+        type: 'Visuels 3D',
+        images: [ 'photo/martine/hotgloss14.png', 'photo/martine/hotgloss52.png', 'photo/martine/hotgloss102.png', 'photo/martine/hotgloss162.png' ],
+        projectName: 'Martine Cosmetics'  // Nom du projet
     },
 
 
@@ -708,13 +779,20 @@ nav ul li a:hover {
         projectName: 'Contact'  // Nom du projet
     },
 
-    'Dossier 21': {
-        projectName: 'About'  // Nom du projet
-    },
+ "Dossier 21": {
+  projectName: "About",
+  description: [
+    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site.",
+    "Télécharger mon CV",
+    "Me faire un virement <input type='number' id='virementAmount' placeholder='Montant à envoyer' style='width: 100px; padding: 5px;'> € <button id='envoyerButton' onclick='envoyerVirement()' style='padding: 5px 10px; margin-left: 10px;'>Envoyer</button>"
+  ]
+}
 
-    'Dossier 22': {
-        projectName: 'Barbie'  // Nom du projet
-    },
+
+
+
+
+
 };
 
     
@@ -738,34 +816,42 @@ function openWindow(dossierName) {
 
 
     // Fenêtre de texte
+    const descriptions = Array.isArray(dossier.description)
+    ? dossier.description
+    : [dossier.description]; // Assure-toi qu'il s'agit d'un tableau
+
+  descriptions.forEach((desc, index) => {
     const windowText = document.createElement("div");
     windowText.classList.add("window");
-    windowText.style.top = "100px";
-    windowText.style.left = "100px";
-    windowText.style.zIndex = 999; // Défini haut par défaut
+    windowText.style.top = `${100 + index * 40}px`; // Décale un peu les fenêtres
+    windowText.style.left = `${100 + index * 60}px`;
+    windowText.style.zIndex = 999;
     windowText.onclick = () => bringToFront(windowText);
-    document.body.appendChild(windowText);
     openWindows.push(windowText);
+
     windowText.innerHTML = `
-        <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
-            <div class="buttons">
-                <div class="close" onclick="closeWindow(this)"></div>
-                <div class="minimize"></div>
-                <div class="maximize"></div>
-            </div>
-            <span class="window-title">${dossier.projectName}</span>
-        </div>
-        <div class="window-content">
-            <p>${dossier.description}</p>
-        </div>
-        <div class="window-footer">
-            <p class="footer-text">${dossier.type}</p>
-        </div>
+      <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
+          <div class="buttons">
+              <div class="close" onclick="closeWindow(this)"></div>
+              <div class="minimize"></div>
+              <div class="maximize"></div>
+          </div>
+          <span class="window-title">${dossier.projectName} </span>
+      </div>
+      <div class="window-content">
+          <p>${desc}</p>
+      </div>
+      <div class="window-footer">
+          <p class="footer-text">${dossier.type}</p>
+      </div>
     `;
 
-    
     document.body.appendChild(windowText);
-    openWindows.push(windowText);
+  });
+
+
+
+   
 
 
    // Fenêtre de vidéo
@@ -1273,7 +1359,7 @@ function moveHoverImage() {
 
 
 
-
+//image qui se seecoue quand on clique dessus
 function shakeFolder(element) {
   element.classList.add('shake');
 
@@ -1281,6 +1367,51 @@ function shakeFolder(element) {
   setTimeout(() => {
     element.classList.remove('shake');
   }, 500); // même durée que dans l’animation CSS
+}
+
+
+//Notif website coded from scratch
+function showNotif(message) {
+  const notif = document.getElementById('fakeNotif');
+  notif.innerHTML = `<p>${message}</p>`;
+  notif.classList.remove('hidden');
+
+  setTimeout(() => {
+    notif.classList.add('hidden');
+  }, 4000);
+}
+// Exemple d'utilisation
+setTimeout(() => {
+  showNotif("Website coded from scratch.");
+}, 3000);
+
+
+
+//About qui se secoue
+  setTimeout(() => {
+    const folder = document.getElementById('aboutFolder');
+    if (folder) {
+      folder.classList.add('jump-alert');
+    } else {
+      console.log('Element not found!');
+    }
+  }, 40000);
+  document.getElementById('aboutFolder').addEventListener('click', () => {
+  document.getElementById('aboutFolder').classList.remove('jump-alert');
+});
+
+
+
+
+
+function envoyerVirement() {
+  const montant = document.getElementById('virementAmount').value;
+  
+  if (montant && !isNaN(montant)) {
+    alert(`Merci pour votre virement de ${montant} € ! 💸`);
+  } else {
+    alert("Veuillez entrer un montant valide ! 🙄");
+  }
 }
 
 
