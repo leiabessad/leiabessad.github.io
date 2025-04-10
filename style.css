@@ -560,8 +560,15 @@ nav ul li a:hover {
   animation: jumpShake 1s ease-in-out infinite;
 }
 
-
-
+.mobile-message {
+  display: none;
+  text-align: center;
+  background-color: #ff95cc;
+  padding: 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: white;
+}
 
 
 /* Afficher le message uniquement sur les petits écrans (téléphone) */
@@ -587,13 +594,22 @@ nav ul li a:hover {
         margin: 0 auto; /* Centre les fenêtres */
     }
 
-    
 
     .window-content img, .window-content video {
     max-width: 100%; /* Ne pas dépasser la largeur du conteneur */
     max-height: 100%; /* Ne pas dépasser la hauteur du conteneur */
     object-fit: contain; /* S'assurer que l'image ou la vidéo garde ses proportions */
 }
+
+.mobile-message {
+    display: block;
+  }
+
+  .notif{
+    display: none;
+  }
+
+
 /* Cacher le dossier avec la classe 'hidden-mobile' sur les écrans de moins de 768px */
 @media only screen and (max-width: 768px) {
     .hidden-mobile {
@@ -601,5 +617,5 @@ nav ul li a:hover {
     }
 }
 
-
 }
+
