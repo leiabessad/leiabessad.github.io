@@ -246,6 +246,7 @@ body {
             position: absolute;
             transition: transform 0.2s ease;
             padding: 5px;
+            z-index: 101;
         }
 
         .folder img, .playlist img {
