@@ -1,4 +1,3 @@
-<script>
     const dossiers = {
     'Dossier 1': {
         description: "Le terme 'mayonnaise' est protégé par la FDA pour des raisons de qualité, et Hellmann's répond à ces critères, fier de son produit phare : la Real Mayonnaise. Pourtant, malgré cette appellation précise et méritée, beaucoup continuent de l'appeler vulgairement « mayo ». <br>Pour remédier à cette tendance, la marque lance la campagne <br>« Ain’t Your ‘Mayo’ », où elle abandonne temporairement son étiquette classique pour rappeler la véritable nature de son produit, gage d'excellence culinaire. Ceux qui ont osé parler sur X de la mayonnaise d'Hellmann’s en utilisant le terme 'mayo' sont exposés sur un billboard à Times Square et doivent publier des excuses pour en disparaître.<br><br>Grâce à l’activation, tout le monde se souviendra qu'il faut appeler la Real Mayonnaise d'Hellmann's par son nom complet. <br>Parce qu'Hellmann's ne fait pas de la simple 'mayo'. Il fait de la vraie mayonnaise.",
@@ -727,11 +726,3 @@ function envoyerVirement() {
     alert("Veuillez entrer un montant valide ! 🙄");
   }
 }
-
-
-
-
-
-        
-       
-    </script>
