@@ -69,9 +69,7 @@
 
 
 
-        
-
-        
+      
 
         .window {
             position: absolute;
@@ -196,6 +194,8 @@
         .buttons {
             display: flex;
             gap: 8px;
+            border-style: none;
+            border:none;
         }
 
         .buttons div {
@@ -263,13 +263,11 @@
         .folder p, .playlist p {
             font-size: 12px;
             margin-top: 5px;
-            font-weight: bold;
+            /*font-weight: bold;*/
             color: #333;
         }
 
        
-
-        
 
         
 
@@ -371,7 +369,17 @@
     width: 80%; 
     max-height: 250px; 
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+.bouton{
+    background-color: #ff3a96;
+    color: #ffffff;
+    font-size: 12px; 
+    font-weight: regular;
+    text-decoration: none; 
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 /*
@@ -447,10 +455,25 @@ nav ul li a {
     font-size: 12px;
     text-transform: uppercase;
     font-family: Arial, sans-serif;
+    cursor: pointer;
+
 }
 
 nav ul li a:hover {
     color: #007BFF;  /* Changer la couleur au survol */
+}
+
+.fermer {
+    color: #ff3a96;
+}
+
+#leyo{
+    color: #007BFF;
+}
+
+#leyo:hover{
+    color: #ff3a96;
+
 }
 
 
@@ -548,6 +571,27 @@ nav ul li a:hover {
 
 
 
+/* Afficher le message uniquement sur les petits écrans (téléphone) */
+@media only screen and (max-width: 768px) {
+  .mobile-message {
+    display: block;
+  }
+    .folder{
+        position: fixed;
+    }
+
+    .window{
+        width: 300px;
+        
+    }
+
+    .window-photo{
+        left: 10px;
+    }
+  }
+
+
+
 
     </style>
 </head>
@@ -559,9 +603,28 @@ nav ul li a:hover {
     </header>
   
 
-    
+   
+      
     
     <div class="desktop" id="desktop" >
+
+
+        <div class="folder" style="top: 500px; right: 300px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/mariposa.png" alt="Dossier">
+            <p>Barbie_mariposa streaming_vf</p>
+        </div>
+
+        <div class="folder" style="top: 350px; right: 500px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/fichier.png" alt="Dossier">
+            <p>logo_vfffffff lacvraimentlebon final</p>
+        </div>
+
+
+        
         <div class="folder" style="top: 50px; left: 50px;" data-image="photo/miniature-project2.png" 
             ondblclick="openWindow('Dossier 1')" 
             onmousedown="startDrag(event, this)">
@@ -648,19 +711,7 @@ nav ul li a:hover {
 
 
 
-        <div class="folder" style="top: 500px; right: 300px;"
-        onmousedown="startDrag(event, this)"
-        ondblclick="shakeFolder(this)">
-            <img src="photo/mariposa.png" alt="Dossier">
-            <p>Barbie_mariposa streaming_vf</p>
-        </div>
-
-        <div class="folder" style="top: 350px; right: 500px;"
-        onmousedown="startDrag(event, this)"
-        ondblclick="shakeFolder(this)">
-            <img src="photo/fichier.png" alt="Dossier">
-            <p>logo_vfffffff lacvraimentlebon final</p>
-        </div>
+        
 
         
         <div id="fakeNotif" class="notif hidden">
@@ -675,10 +726,11 @@ nav ul li a:hover {
 
     <nav>
         <ul>
-            <li><a href="#">Leïa Bessad</a></li>
+            <li><a onclick="window.location.href='test2.html';" id="leyo">Leïa Bessad</a></li>
             <li><a onclick="window.location.href='activations.html';">Activations</a></li>
             <li><a href="#">3D</a></li>
             <li><a href="#">Branding</a></li>
+
         </ul>
     </nav>
 
@@ -787,11 +839,6 @@ nav ul li a:hover {
     "Me faire un virement <input type='number' id='virementAmount' placeholder='Montant à envoyer' style='width: 100px; padding: 5px;'> € <button id='envoyerButton' onclick='envoyerVirement()' style='padding: 5px 10px; margin-left: 10px;'>Envoyer</button>"
   ]
 }
-
-
-
-
-
 
 };
 
@@ -1048,30 +1095,28 @@ if (dossier.videos && dossier.videos.length > 0) {
 
     
 
-    // Vérifie si la fenêtre "Fermer tout" existe déjà
-const existingCloseAllWindow = document.getElementById("close-all-window");
-if (!existingCloseAllWindow) {
-    // Crée la fenêtre "Fermer tout"
-    const closeAllWindow = document.createElement("div");
-closeAllWindow.id = "close-all-window";
-closeAllWindow.style.position = "fixed";  // Fixe le bouton
-closeAllWindow.style.bottom = "20px";     // Place en bas
-closeAllWindow.style.left = "50px";       // Place à gauche
-closeAllWindow.style.zIndex = 1000;      // Toujours au-dessus des autres
-closeAllWindow.style.cursor = "pointer"; // Curseur de type main pour indiquer que c'est cliquable
-closeAllWindow.innerHTML = `
-    <span onclick="closeAllWindows()" 
-        style="background-color: #ff1a90; color: #ffffff; font-size: 12px; 
-               font-weight: regular; text-decoration: none; 
-               padding: 5px 10px; border-radius: 5px;
-               box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
-        Fermer tout
-    </span>
-`;
-document.body.appendChild(closeAllWindow);
-openWindows.push(closeAllWindow);
+ // Vérifie si le bouton "Fermer tout" existe déjà
+const existingCloseAllNavItem = document.getElementById("close-all-nav-item");
+if (!existingCloseAllNavItem) {
+    // Trouve la liste de navigation
+    const navUl = document.querySelector("nav ul");
 
+    // Crée le nouvel élément <li>
+    const closeAllLi = document.createElement("li");
+    closeAllLi.id = "close-all-nav-item"; // utile pour éviter les doublons
+
+    // Ajoute le lien dedans
+    closeAllLi.innerHTML = `
+        <a href="#" class="li a fermer" onclick="closeAllWindows()">Fermer tout</a>
+    `;
+
+    // Ajoute à la fin de la liste de navigation
+    navUl.appendChild(closeAllLi);
+
+    // Optionnel : garder une trace si tu as un système comme openWindows
+    openWindows.push(closeAllLi);
 }
+
 
         
         // Forcer un recalcul du style pour que les images s'affichent correctement
@@ -1093,6 +1138,11 @@ openWindows.push(closeAllWindow);
         window.remove(); // Supprime chaque fenêtre
     });
     openWindows = []; // Vide la liste des fenêtres ouvertes
+    // Supprime le bouton du nav
+    const closeAllNavItem = document.getElementById("close-all-nav-item");
+    if (closeAllNavItem) {
+        closeAllNavItem.remove();
+    }
 }
      
 
@@ -1197,7 +1247,7 @@ openWindows.push(closeAllWindow);
         <div class="window-content">
         
        Mail : leia.bessad@gmail.com <br>Instagram : <a href="https://www.instagram.com/leia_kin/" > leia_kin </a> <br> Linkedin : <a href="https://www.linkedin.com/in/leïa-bessad" > Leïa </a> <br> Onlyfan : <a href="lien" > Leyo </a>
-       
+
         </div>
         </div>
     `;
@@ -1223,13 +1273,13 @@ function openPlaylistWindow() {
         </div>
         <div class="window-content-playlist">
             <div class="file-item" onclick="openMusicPlayer('son/ABBA.mp3', 'ABBA - The winner takes it all', 'photo/playlist/ABBA.png')">ABBA - The winner takes it all</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/ben.mp3', &quot;Ben l'Oncle Soul ft. Roseaux - I Am Going Home&quot;)">Ben l'Oncle Soul ft. Roseaux - I Am Going Home</div>
-            <div class="file-item" onclick="openMusicPlayer('son/Aline.mp3', 'Christophe - Aline')">Christophe - Aline</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/LoveMeNot.mp3', 'Ravyn Lenae - Love Me Not')">Ravyn Lenae - Love Me Not</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/ben.mp3', 'Ben l’Oncle Soul ft. Roseaux - I Am Going Home', 'photo/playlist/roseaux.jpeg')">Ben l'Oncle Soul ft. Roseaux - I Am Going Home</div>
+            <div class="file-item" onclick="openMusicPlayer('son/Aline.mp3', 'Christophe - Aline', 'photo/playlist/christophe.jpeg')">Christophe - Aline</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/LoveMeNot.mp3', 'Ravyn Lenae - Love Me Not', 'photo/playlist/ravyn.jpeg')">Ravyn Lenae - Love Me Not</div>
             <div class="file-item" onclick="openMusicPlayer('son/smashmouth_allstar.mp3', 'Smash Mouth - All Star')">Smash Mouth - All Star</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/tameimpala_lessiknow.mp3', 'Tame Impala - The Less I Know The Better')">Tame Impala - The Less I Know The Better</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/tame.mp3', 'Tame Impala - The Less I Know The Better', 'photo/playlist/tame.jpeg')">Tame Impala - The Less I Know The Better</div>
             <div class="file-item" onclick="openMusicPlayer('son/THEODORA - FNG.mp3', 'Theodora - FNG', 'photo/playlist/Theodora.png')">Theodora - FNG</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/phoebe_scottstreet.mp3', 'Phoebe Bridgers - Scott Street')">Phoebe Bridgers - Scott Street</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/scott.mp3', 'Phoebe Bridgers - Scott Street', 'photo/playlist/scott.jpeg')">Phoebe Bridgers - Scott Street</div>
             <div class="file-item" onclick="openMusicPlayer('son/zola_jesus.mp3', 'Zola Jesus')">Zola Jesus</div>
         </div>
     `;
