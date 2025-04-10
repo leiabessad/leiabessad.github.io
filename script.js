@@ -371,7 +371,7 @@ if (!existingCloseAllNavItem) {
 
     // Ajoute le lien dedans
     closeAllLi.innerHTML = `
-        <a href="#" class="li a fermer" onclick="closeAllWindows()">Fermer tout</a>
+        <a href="#" class="li a fermer" onclick="closeAllWindows()">Fermer les fenêtres</a>
     `;
 
     // Ajoute à la fin de la liste de navigation
