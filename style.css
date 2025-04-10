@@ -1,5 +1,4 @@
- <style>
-        body {
+body {
             background-color: #ffffff; /*#e1e1e1*/
             display: flex;
             justify-content: center;
@@ -604,9 +603,3 @@ nav ul li a:hover {
 
 
 }
-
-
-
-
-
-    </style>
