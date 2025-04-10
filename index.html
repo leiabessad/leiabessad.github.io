@@ -35,6 +35,24 @@
             <p>logo_vfffffff lacvraimentlebon final</p>
         </div>
 
+         <!-- Playlist modifiée pour être déplaçable -->
+        <div class="playlist hidden-mobile" style="top: 30px; right: 50px;" ondblclick="openPlaylistWindow()" onmousedown="startDrag(event, this)">
+            <img src="photo/test.png" alt="Playlist">
+            <p>Ma Playlist</p>
+        </div>
+
+        <div class="folder" style="top: 200px; right: 50px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
+            <img src="photo/vignette2.png" alt="Invariant">
+            <p>Contact</p>
+        </div>
+
+        <div id="aboutFolder" class="folder" style="top: 350px; right: 50px;"
+     ondblclick="openWindow('Dossier 21')"
+     onmousedown="startDrag(event, this)">
+      <img src="photo/vignette2.png" alt="Dossier">
+      <p>About</p>
+        </div>
+
 
         
         <div class="folder" style="top: 50px; left: 50px;" data-image="photo/miniature-project2.png" 
@@ -101,25 +119,7 @@
             <p>Corbeille</p>
         </div>
 
-    
 
-        <!-- Playlist modifiée pour être déplaçable -->
-        <div class="playlist hidden-mobile" style="top: 30px; right: 50px;" ondblclick="openPlaylistWindow()" onmousedown="startDrag(event, this)">
-            <img src="photo/test.png" alt="Playlist">
-            <p>Ma Playlist</p>
-        </div>
-
-        <div class="folder" style="top: 200px; right: 50px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
-            <img src="photo/vignette2.png" alt="Invariant">
-            <p>Contact</p>
-        </div>
-
-        <div id="aboutFolder" class="folder" style="top: 350px; right: 50px;"
-     ondblclick="openWindow('Dossier 21')"
-     onmousedown="startDrag(event, this)">
-  <img src="photo/vignette2.png" alt="Dossier">
-  <p>About</p>
-</div>
 
         <div id="fakeNotif" class="notif hidden">
             <p>Website Coded from scratch</p>
