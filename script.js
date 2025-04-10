@@ -96,7 +96,7 @@
  "Dossier 21": {
   projectName: "About",
   description: [
-    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site.<br><br> <a href='leia_bessad_CV.pdf' download style='text-transform: uppercase;'>Télécharger mon CV</a>",
+    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site.",
     "Me faire un virement <input type='number' id='virementAmount' placeholder='Montant à envoyer' style='width: 100px; padding: 5px;'> € <button id='envoyerButton' onclick='envoyerVirement()' style='padding: 5px 10px; margin-left: 10px;'>Envoyer</button>"
   ]
 }
