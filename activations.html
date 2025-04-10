@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <title>Leïa Bessad Portfolio</title>
+</head>
+<body>
+ 
+    <div class="desktop" id="desktop" >
+
+
+        <div class="folder hidden-mobile" style="top: 500px; right: 300px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/mariposa.png" alt="Dossier">
+            <p>Barbie_mariposa streaming_vf</p>
+        </div>
+
+        <div class="folder hidden-mobile" style="top: 350px; right: 500px;"
+        onmousedown="startDrag(event, this)"
+        ondblclick="shakeFolder(this)">
+            <img src="photo/fichier.png" alt="Dossier">
+            <p>logo_vfffffff lacvraimentlebon final</p>
+        </div>
+
+
+        
+        <div class="folder" style="top: 50px; left: 50px;" data-image="photo/miniature-project2.png" 
+            ondblclick="openWindow('Dossier 1')" 
+            onmousedown="startDrag(event, this)">
+            <img src="photo/vignette2.png" alt="Dossier">
+            <p>Ain't your "Mayo"</p>
+        </div>
+    
+    
+        <div class="folder" style="top: 200px; left: 175px;" 
+            ondblclick="openWindow('Dossier 3')" 
+            onmousedown="startDrag(event, this)">
+            <img src="photo/vignette2.png" alt="Dossier">
+            <p>Easy Love Story</p>
+        </div>
+
+        
+         <div class="folder" style="top: 350px; left: 175px;" 
+        ondblclick="openWindow('Dossier 5')" 
+        onmousedown="startDrag(event, this)">
+        <img src="photo/vignette2.png" alt="Dossier">
+        <p>Les Talentueux</p>
+         </div>
+
+
+         <div  id="corbeille" class="folder hidden-mobile" style="bottom: 50px; right: 50px;">
+            <img src="photo/corbeille.png" alt="Corbeille">
+            <p>Corbeille</p>
+        </div>
+
+    
+        <!-- Playlist modifiée pour être déplaçable -->
+        <div class="playlist hidden-mobile" style="top: 30px; right: 50px;" ondblclick="openPlaylistWindow()" onmousedown="startDrag(event, this)">
+            <img src="photo/test.png" alt="Playlist">
+            <p>Ma Playlist</p>
+        </div>
+
+        <div class="folder" style="top: 200px; right: 50px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
+            <img src="photo/vignette2.png" alt="Invariant">
+            <p>Contact</p>
+        </div>
+
+        <div id="aboutFolder" class="folder" style="top: 350px; right: 50px;"
+     ondblclick="openWindow('Dossier 21')"
+     onmousedown="startDrag(event, this)">
+  <img src="photo/vignette2.png" alt="Dossier">
+  <p>About</p>
+</div>
+   
+        <div id="fakeNotif" class="notif hidden">
+            <p>Website Coded from scratch</p>
+          </div>
+  
+    </div>
+
+    <nav>
+        <ul>
+            <li><a onclick="window.location.href='test2.html';" id="leyo">Leïa Bessad</a></li>
+            <li><a onclick="window.location.href='activations.html';">Activations</a></li>
+            <li><a href="#">3D</a></li>
+            <li><a href="#">Branding</a></li>
+
+        </ul>
+    </nav>
