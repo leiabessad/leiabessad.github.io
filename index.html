@@ -20,8 +20,8 @@
 
         .desktop {
             position: relative;
-            width: 95vw;
-            height: 95vh; /*si je eux pas de bord, mettre width et height à 100)*/
+            width: 100%;
+            height: 100%; /*si je eux pas de bord, mettre width et height à 100)*/
             overflow: hidden;
             /*border: 2px dashed #bbb;*/
             display: flex;
@@ -442,7 +442,7 @@ nav ul {
     display: flex;
     justify-content: flex-start;  /* Aligner les éléments du menu à gauche */
     padding-left: 20px;
-    margin: 0;
+    margin: 10px;
 }
 
 nav ul li {
@@ -572,23 +572,45 @@ nav ul li a:hover {
 
 
 /* Afficher le message uniquement sur les petits écrans (téléphone) */
+@media (max-width: 768px) {
+    .desktop {
+        padding: 10px; /* Réduit l'espace autour des éléments */
+        gap: 5px; /* Réduit l'écart entre les éléments */
+    }
+
+    .folder {
+        width: 30%; /* Réduit la taille des dossiers */
+        height: 10%;
+        margin: 20px; /* Marges entre les éléments */
+        position: unset;
+    }
+
+    .window {
+        width: 90%; /* Réduit la taille des fenêtres */
+        max-width: 100%; /* Empêche les fenêtres d'être trop larges */
+        height: auto;
+        top: auto; /* Réduit la position fixe */
+        left: auto; 
+        margin: 0 auto; /* Centre les fenêtres */
+    }
+
+    
+
+    .window-content img, .window-content video {
+    max-width: 100%; /* Ne pas dépasser la largeur du conteneur */
+    max-height: 100%; /* Ne pas dépasser la hauteur du conteneur */
+    object-fit: contain; /* S'assurer que l'image ou la vidéo garde ses proportions */
+}
+/* Cacher le dossier avec la classe 'hidden-mobile' sur les écrans de moins de 768px */
 @media only screen and (max-width: 768px) {
-  .mobile-message {
-    display: block;
-  }
-    .folder{
-        position: fixed;
+    .hidden-mobile {
+        display: none;
     }
+}
 
-    .window{
-        width: 300px;
-        
-    }
 
-    .window-photo{
-        left: 10px;
-    }
-  }
+}
+
 
 
 
@@ -609,14 +631,14 @@ nav ul li a:hover {
     <div class="desktop" id="desktop" >
 
 
-        <div class="folder" style="top: 500px; right: 300px;"
+        <div class="folder hidden-mobile" style="top: 500px; right: 300px;"
         onmousedown="startDrag(event, this)"
         ondblclick="shakeFolder(this)">
             <img src="photo/mariposa.png" alt="Dossier">
             <p>Barbie_mariposa streaming_vf</p>
         </div>
 
-        <div class="folder" style="top: 350px; right: 500px;"
+        <div class="folder hidden-mobile" style="top: 350px; right: 500px;"
         onmousedown="startDrag(event, this)"
         ondblclick="shakeFolder(this)">
             <img src="photo/fichier.png" alt="Dossier">
@@ -684,7 +706,7 @@ nav ul li a:hover {
         <p>Martine Cosmetics</p>
          </div>
 
-         <div  id="corbeille" class="folder" style="bottom: 50px; right: 20px;">
+         <div  id="corbeille" class="folder hidden-mobile" style="bottom: 50px; right: 50px;">
             <img src="photo/corbeille.png" alt="Corbeille">
             <p>Corbeille</p>
         </div>
@@ -692,17 +714,17 @@ nav ul li a:hover {
     
 
         <!-- Playlist modifiée pour être déplaçable -->
-        <div class="playlist" style="top: 30px; right: 20px;" ondblclick="openPlaylistWindow()" onmousedown="startDrag(event, this)">
+        <div class="playlist hidden-mobile" style="top: 30px; right: 50px;" ondblclick="openPlaylistWindow()" onmousedown="startDrag(event, this)">
             <img src="photo/test.png" alt="Playlist">
             <p>Ma Playlist</p>
         </div>
 
-        <div class="folder" style="top: 200px; right: 20px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
+        <div class="folder" style="top: 200px; right: 50px;" ondblclick="openContactWindow()" onmousedown="startDrag(event, this)">
             <img src="photo/vignette2.png" alt="Invariant">
             <p>Contact</p>
         </div>
 
-        <div id="aboutFolder" class="folder" style="top: 350px; right: 20px;"
+        <div id="aboutFolder" class="folder" style="top: 350px; right: 50px;"
      ondblclick="openWindow('Dossier 21')"
      onmousedown="startDrag(event, this)">
   <img src="photo/vignette2.png" alt="Dossier">
@@ -834,8 +856,7 @@ nav ul li a:hover {
  "Dossier 21": {
   projectName: "About",
   description: [
-    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site.",
-    "Télécharger mon CV",
+    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site.<br><br> <a href='leia_bessad_CV.pdf' download style='text-transform: uppercase;'>Télécharger mon CV</a>",
     "Me faire un virement <input type='number' id='virementAmount' placeholder='Montant à envoyer' style='width: 100px; padding: 5px;'> € <button id='envoyerButton' onclick='envoyerVirement()' style='padding: 5px 10px; margin-left: 10px;'>Envoyer</button>"
   ]
 }
@@ -871,10 +892,12 @@ function openWindow(dossierName) {
     const windowText = document.createElement("div");
     windowText.classList.add("window");
     windowText.style.top = `${100 + index * 40}px`; // Décale un peu les fenêtres
-    windowText.style.left = `${100 + index * 60}px`;
+    windowText.style.left = `${100 + index * 400}px`;
     windowText.style.zIndex = 999;
     windowText.onclick = () => bringToFront(windowText);
     openWindows.push(windowText);
+
+
 
     windowText.innerHTML = `
       <div class="window-header" onmousedown="startDrag(event, this.parentNode)">
@@ -895,6 +918,7 @@ function openWindow(dossierName) {
 
     document.body.appendChild(windowText);
   });
+  
 
 
 
@@ -1145,7 +1169,6 @@ if (!existingCloseAllNavItem) {
     }
 }
      
-
 
 
 
@@ -1463,6 +1486,8 @@ function envoyerVirement() {
     alert("Veuillez entrer un montant valide ! 🙄");
   }
 }
+
+
 
 
 
