@@ -457,6 +457,10 @@ nav ul li a:hover {
     color: #007BFF;  /* Changer la couleur au survol */
 }
 
+nav ul li a:active{
+color: #ff3a96;
+}
+
 .fermer {
     color: #ff3a96;
 }
@@ -501,6 +505,11 @@ nav ul li a:hover {
 
 .window-content a:hover{
     color: #007BFF;
+    text-decoration: none;
+}
+
+.window-content a:active {
+    color: #ff3a96;
     text-decoration: none;
 }
 
