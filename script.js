@@ -88,6 +88,13 @@
         projectName: 'Martine Cosmetics'  // Nom du projet
     },
 
+         'Dossier 9': {
+        description: "Réalisation de visuels publicitaires pour la mousse bronzante Coco And Eve. Les visuels s'allignent avec la direction artistique de la marque : des couleurs fraîches et des mises en scène estivales et paradisiaques.",
+        type: 'Visuels 3D',
+        images: [ 'photo/coco/coco8.png', 'photo/coco/cocoandeve.gif'],
+        projectName: 'Coco and Eve'  // Nom du projet
+    },
+
 
     'Dossier 20': {
         projectName: 'Contact'  // Nom du projet
