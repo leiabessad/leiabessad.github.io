@@ -104,7 +104,7 @@
   projectName: "About",
   description: [
       "Me faire un virement <input type='number' id='virementAmount' placeholder='Montant à envoyer' style='width: 100px; padding: 5px;'> € <button id='envoyerButton' onclick='envoyerVirement()' style='padding: 5px 10px; margin-left: 10px;'>Envoyer</button>",
-    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. J'aime le graphic design et les activations. Découvrez un morceau de ma personnalité au travers de ce site."
+    "Après un DNMADE Graphisme - Image de Communication à l’ELMAD Auguste Renoir, j'ai suivi le DSAA DSC (le meilleur du monde) à Estienne. Mes formations m’ont permis de faire mes premiers pas dans l’univers de la communication visuelle mais également de me familiariser avec les structurations et les démarches de réalisation de projet dont je suis tombée amoureuse. Je prends réellement beaucoup de plaisir à pratiquer le design : j’aime produire, mais j’aime également apprendre et penser (par) le design graphique. Au travers de ce site, vous découvrirez un avant-goût de ma personnalité :)"
     
   ]
 }
@@ -703,7 +703,7 @@ function showNotif(message) {
 }
 // Exemple d'utilisation
 setTimeout(() => {
-  showNotif("Website coded from scratch.");
+  showNotif("Website coded from scratch");
 }, 3000);
 
 
