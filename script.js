@@ -517,7 +517,7 @@ if (!existingCloseAllNavItem) {
         </div>
         <div class="window-content">
         
-       Mail : leia.bessad@gmail.com <br>Instagram : <a href="https://www.instagram.com/leia_kin/" > leia_kin </a> <br> Linkedin : <a href="https://www.linkedin.com/in/leïa-bessad" > Leïa </a> <br> Onlyfan : <a href="lien" > Leyo </a>
+       Mail : leia.bessad@gmail.com <br>Instagram : <a href="https://www.instagram.com/leia_kin/" target="_blank"> leia_kin </a> <br> Linkedin : <a href="https://www.linkedin.com/in/leïa-bessad" target="_blank"> Leïa </a> <br> Onlyfan : <a href="lien" > Leyo </a>
 
         </div>
         </div>
