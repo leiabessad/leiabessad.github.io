@@ -551,6 +551,7 @@ function openPlaylistWindow() {
             <div class="file-item1" onclick="openMusicPlayer('son/tame.mp3', 'Tame Impala - The Less I Know The Better', 'photo/playlist/tame.jpeg')">Tame Impala - The Less I Know The Better</div>
             <div class="file-item" onclick="openMusicPlayer('son/THEODORA - FNG.mp3', 'Theodora - FNG', 'photo/playlist/Theodora.png')">Theodora - FNG</div>
             <div class="file-item1" onclick="openMusicPlayer('son/scott.mp3', 'Phoebe Bridgers - Scott Street', 'photo/playlist/scott.jpeg')">Phoebe Bridgers - Scott Street</div>
+            <div class="file-item" onclick="openMusicPlayer('son/zola.mp3', 'Zola Jesus - Skin', 'photo/playlist/zola.jpeg')">Zola Jesus - Skin</div>
         </div>
     `;
     document.body.appendChild(windowDiv);
