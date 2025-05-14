@@ -546,11 +546,11 @@ function openPlaylistWindow() {
             <div class="file-item" onclick="openMusicPlayer('son/ABBA.mp3', 'ABBA - The winner takes it all', 'photo/playlist/ABBA.png')">ABBA - The winner takes it all</div>
             <div class="file-item1" onclick="openMusicPlayer('son/ben.mp3', 'Ben l’Oncle Soul ft. Roseaux - I Am Going Home', 'photo/playlist/roseaux.jpeg')">Ben l'Oncle Soul ft. Roseaux - I Am Going Home</div>
             <div class="file-item" onclick="openMusicPlayer('son/Aline.mp3', 'Christophe - Aline', 'photo/playlist/christophe.jpeg')">Christophe - Aline</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/marina.mp3', 'Marina and the Diamonds - Teen Idle', 'photo/playlist/marina.jpeg')">Marina and the Diamonds - Teen Idle</div>
+            <div class="file-item" onclick="openMusicPlayer('son/scott.mp3', 'Phoebe Bridgers - Scott Street', 'photo/playlist/scott.jpeg')">Phoebe Bridgers - Scott Street</div>
             <div class="file-item1" onclick="openMusicPlayer('son/LoveMeNot.mp3', 'Ravyn Lenae - Love Me Not', 'photo/playlist/ravyn.jpeg')">Ravyn Lenae - Love Me Not</div>
-            <div class="file-item" onclick="openMusicPlayer('son/smashmouth_allstar.mp3', 'Smash Mouth - All Star')">Smash Mouth - All Star</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/tame.mp3', 'Tame Impala - The Less I Know The Better', 'photo/playlist/tame.jpeg')">Tame Impala - The Less I Know The Better</div>
-            <div class="file-item" onclick="openMusicPlayer('son/THEODORA - FNG.mp3', 'Theodora - FNG', 'photo/playlist/Theodora.png')">Theodora - FNG</div>
-            <div class="file-item1" onclick="openMusicPlayer('son/scott.mp3', 'Phoebe Bridgers - Scott Street', 'photo/playlist/scott.jpeg')">Phoebe Bridgers - Scott Street</div>
+            <div class="file-item" onclick="openMusicPlayer('son/tame.mp3', 'Tame Impala - The Less I Know The Better', 'photo/playlist/tame.jpeg')">Tame Impala - The Less I Know The Better</div>
+            <div class="file-item1" onclick="openMusicPlayer('son/THEODORA - FNG.mp3', 'Theodora - FNG', 'photo/playlist/Theodora.png')">Theodora - FNG</div>
             <div class="file-item" onclick="openMusicPlayer('son/zola.mp3', 'Zola Jesus - Skin', 'photo/playlist/zola.jpeg')">Zola Jesus - Skin</div>
         </div>
     `;
