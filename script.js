@@ -6,7 +6,7 @@
         video: 'https://youtu.be/X-5ET_ffby4', // Remplace par ton lien YouTube
         poster:'photo/miniature/hellmann.png',
         projectFamily: 'Case',
-        projectName: "Ain't Your Mayo",  // Nom du projet
+        projectName: 'Ain‘t Your "Mayo"',  // Nom du projet
         likedByBrand: true,
 
     },
