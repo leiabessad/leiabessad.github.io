@@ -162,8 +162,8 @@ function openWindow(dossierName) {
       </div>
        <div class="window-footer">
                 <p class="footer-text">${dossier.type}</p>
-                ${dossier.likedByBrand ? `<p class="footer-text liked-text">D&AD New Blood Winner 2025</p>` : ''}
-        </div>
+                ${dossier.likedByBrand ? `<p class="footer-text liked-text"> D&AD New Blood Winner 2025</p>` : ''}
+            </div>
     `;
 
     document.body.appendChild(windowText);
