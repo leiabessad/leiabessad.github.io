@@ -7,6 +7,7 @@
         poster:'photo/miniature/hellmann.png',
         projectFamily: 'Case',
         projectName: "Ain't Your Mayo",  // Nom du projet
+        likedByBrand: true,
 
     },
     'Dossier 2': {
@@ -159,9 +160,10 @@ function openWindow(dossierName) {
       <div class="window-content">
           <p>${desc}</p>
       </div>
-      <div class="window-footer">
-          <p class="footer-text">${dossier.type}</p>
-      </div>
+       <div class="window-footer">
+                <p class="footer-text">${dossier.type}</p>
+                ${dossier.likedByBrand ? `<p class="footer-text liked-text">D&AD New Blood Winner 2025</p>` : ''}
+        </div>
     `;
 
     document.body.appendChild(windowText);
