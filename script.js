@@ -72,7 +72,7 @@
         description: "Projet personnel de réalisation de visuels publicitaires pour le lip oil de la marque Fenty Skin. Réalisés entièrement en 3D sur Blender, ces visuels s'imprègnent de l'esprit estival, rafraîchissant et coloré que la marque met en avant sur ces réseaux sociaux. Ici, j'ai voulu faire un parallèle et par métaphore faire paraître le lip oil aussi rafraîchissant et agréable que le fait de boire un cocktail en été.",
         type: 'Visuels 3D',
         images: [ 'photo/fenty/liquid0.png', 'photo/fenty/liquid1.png', 'photo/fenty/liquid2.png' ],
-        projectName: 'Fenty Skin'  // Nom du projet
+        projectName: 'Fenty Skin'// Nom du projet
     },
 
    // 'Dossier 7': {
