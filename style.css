@@ -160,6 +160,7 @@ cursor: pointer;
        
        .window-footer{
             justify-content: space-between;
+            display: flex;
             align-items: center;
             margin-right: 15px;
             margin-left: 15px;
@@ -173,6 +174,7 @@ cursor: pointer;
         text-transform: uppercase;
 
        }
+
 
 .liked-text {
     text-align: right;
