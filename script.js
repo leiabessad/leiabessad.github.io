@@ -96,6 +96,13 @@
         projectName: 'Coco and Eve'  // Nom du projet
     },
 
+         'Dossier 10': {
+    images: ['photo/VCF1.png', 'photo/VCF2.png', 'photo/VCF3.png','photo/VCF4.png'],
+    type: 'Affiches',
+    projectName: 'What‘s inside womens bag ?'  // Nom du projet
+    
+},
+
 
     'Dossier 20': {
         projectName: 'Contact'  // Nom du projet
