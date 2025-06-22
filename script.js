@@ -24,7 +24,7 @@
     videos: [  
         'videos/DATECAM_easy.mp4',
         'videos/caseeasy.mp4',
-        'videos/easyjet_interface.mp4',
+        'videos/easyjet_interface2.mp4',
     ],
     posters: [  // Ajoute les miniatures correspondantes
         'photo/miniature/date_cam.png',
