@@ -97,9 +97,10 @@
     },
 
          'Dossier 10': {
+    description: "test",
     images: ['photo/bag/sac1_3.png', 'photo/bag/sac6.png'],
     type: 'Affiches',
-    projectName: '“Mais des femmes sentent la nécessité de l‘affirmer encore : la violence n‘est pas une solution. Pourtant, le jour où les hommes auront peur de se faire lacérer la bite à coups de cutter quand ils serrent une fille de force, ils sauront brusquement mieux contrôler leurs pulsions "masculines", et comprendre ce que "non" veut dire.“ King Kong théorie, Virginie Despentes",
+    projectName: '“What‘s inside women bag ?",
 '  // Nom du projet
     
 },
