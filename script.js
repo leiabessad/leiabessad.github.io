@@ -100,8 +100,7 @@
     description: "test",
     images: ['photo/bag/sac1_3.png', 'photo/bag/sac6.png'],
     type: 'Affiches',
-    projectName: '“What‘s inside women bag ?",
-'  // Nom du projet
+    projectName: 'What‘s inside women bag ?'
     
 },
 
