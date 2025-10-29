@@ -593,7 +593,7 @@ height:100%;
 /* Afficher le message uniquement sur les petits écrans (téléphone) */
 @media (max-width: 768px) {
     .desktop {
-        padding: 10px; /* Réduit l'espace autour des éléments */
+        padding: 0px; /* Réduit l'espace autour des éléments */
         gap: 5px; /* Réduit l'écart entre les éléments */
     }
 
@@ -612,6 +612,10 @@ height:100%;
         left: auto; 
         margin: 0 auto; /* Centre les fenêtres */
     }
+
+.nav{
+        display:none;
+}
 
 
     .window-content img, .window-content video {
