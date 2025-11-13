@@ -148,10 +148,145 @@
             <li><a onclick="window.location.href='activations.html';">Activations</a></li>
             <li><a onclick="window.location.href='3Dprojets.html';">3D</a></li>
             <li><a href="#">Branding</a></li>
-
+            <li><a href="#" id="openQuiz">SUIS-je faite pour vous ?</a></li>
+          <!--  <button id="openQuiz" class="mac-btn">Suis-je faite pour vous ? Faites le test</button>
+                 BOUTON POUR OUVRIR LE QUIZ -->
         </ul>
-    </nav>
+      </nav>
 
+  
+  <!-- Fenêtre quiz -->
+  <div id="quizWindow" class="mac-window" style="display:none;">
+      <div class="window-header">
+          <div class="buttons">
+              <div class="close" id="closeQuiz"></div>
+              <div class="minimize"></div>
+              <div class="maximize"></div>
+          </div>
+          <div class="window-title">Test créatif</div>
+      </div>
+      <div class="window-content" >
+          <svg class="connector" id="svg"></svg>
+          <div class="nodes" id="nodes"></div>
+      </div>
+  </div>
+  
+
+  
+  
+  <style>
+  /* --- Styles du bouton et de la fenêtre --- */
+  .mac-btn {
+    padding: 1rem 2rem; font-weight:600; border-radius:12px; border:none;
+    background:#000; color:white; cursor:pointer; transition:0.2s;
+  }
+  .mac-btn:hover {background:#ff5a5f;}
+  
+  .mac-window {
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:1000px; max-width:95%; height:70%; background:#f6f7f9; border-radius:12px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.25); z-index:1000; display:flex; flex-direction:column;
+  }
+  .mac-bar {height:32px; background:#e0e0e0; display:flex; align-items:center; padding:0 12px;
+    border-top-left-radius:12px; border-top-right-radius:12px;}
+  .mac-btns {display:flex; gap:6px;}
+  .mac-close, .mac-min, .mac-max {width:12px; height:12px; border-radius:50%; display:inline-block;}
+  .mac-close {background:#ff5a5f; cursor:pointer;} .mac-min{background:#ffbf2f;} .mac-max{background:#2dc936;}
+  .mac-title {flex:1; text-align:center; font-weight:600; font-size:0.9rem;}
+  .mac-content {position:relative; flex:1; padding:24px; overflow:auto;}
+  
+  /* Nodes quiz */
+  .node {position:absolute; width:320px; background:white; border-radius:12px; padding-top: 14px; padding-bottom: 14px;
+    text-align:center; transform:translate(-50%, -50%); box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+  .q {text-transform:Uppercase;margin-bottom:2px;}
+  .btns {display:flex;justify-content:center;gap:1rem;}
+  button.choice {color:#ff3a96;font-size:14px;border:none;padding:10px;cursor:pointer;background:none;text-transform: uppercase;}
+  button.choice:hover {color: #007BFF;background: none;} button.choice:disabled {opacity:0.4;cursor:not-allowed;}
+  button.restart {color:#007bff;border:none;padding:0.8rem 1.8rem; text-decoration: none; background: none; /* Couleur des liens */
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);}
+  button.restart:hover {background:none}
+  </style>
+  
+  <script>
+  // ouverture/fermeture fenêtre
+  const quizWindow = document.getElementById('quizWindow');
+  document.getElementById('openQuiz').onclick = () => {quizWindow.style.display='flex'; startQuiz();}
+  document.getElementById('closeQuiz').onclick = () => {quizWindow.style.display='none'; resetQuiz();}
+  
+  // Quiz JS
+  const svg = document.getElementById('svg');
+  const nodesWrap = document.getElementById('nodes');
+  const stepY = 120;
+  const offsetX = 160;
+  let currentStep = "q1";
+  let nodes = [];
+  
+  function createNode(text, x, y, withButtons=true){
+    const el = document.createElement('div'); el.className='node'; el.style.left=x+'px'; el.style.top=y+'px';
+    const q = document.createElement('div'); q.className='q'; q.textContent=text; el.appendChild(q);
+    if(withButtons){
+      const btns=document.createElement('div'); btns.className='btns';
+      const yes=document.createElement('button'); yes.className='choice'; yes.textContent='Oui'; yes.onclick=()=>answer(el,'oui');
+      const no=document.createElement('button'); no.className='choice'; no.textContent='Non'; no.onclick=()=>answer(el,'non');
+      btns.appendChild(yes); btns.appendChild(no); el.appendChild(btns);
+    }
+    nodesWrap.appendChild(el);
+    nodes.push({el,x,y});
+    return {el,x,y};
+  }
+  
+  function drawLine(x1,y1,x2,y2){
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+    line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+    line.setAttribute('stroke','#000'); line.setAttribute('stroke-width','2');
+    svg.appendChild(line);
+  }
+  
+  function answer(node, answer){
+    const rect=quizWindow.getBoundingClientRect();
+    const startX=parseFloat(node.style.left), startY=parseFloat(node.style.top);
+    const nextY=startY+stepY; let nextX;
+    if(answer==='oui') nextX=startX- offsetX; else nextX=startX+offsetX;
+  
+    let text=''; let final=false;
+    if(currentStep==='q1'){if(answer==='oui'){text="Faites-vous des trucs cool ?"; currentStep='q2';} 
+    else{text="Aimez-vous gagner des prix ?"; currentStep='q3';}}
+    else if(currentStep==='q2'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut.":"Je suis la personne qu’il vous faut, pour faire des trucs cool.";}
+    else if(currentStep==='q3'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut, on trouvera bien un truc à me faire faire.":"Je ne suis pas la personne qu’il vous faut.";}
+  
+    node.querySelectorAll('button.choice').forEach(b=>b.disabled=true);
+    createNode(text,nextX,nextY,!final);
+    drawLine(startX,startY+40,nextX,nextY-40);
+    if(final){addRestartButton(nextY+80);}
+  }
+  
+  function addRestartButton(y){
+    const btn=document.createElement('button'); btn.className='restart'; btn.textContent='Recommencer'; btn.style.top=y+'px'; 
+    btn.onclick=resetQuiz;
+    nodesWrap.appendChild(btn);
+  }
+  
+  function resetQuiz(){
+    // On vide le SVG et les nodes
+    svg.innerHTML = '';
+    nodesWrap.innerHTML = '';
+    nodes = [];
+    currentStep = 'q1';
+    
+    // On relance le quiz, mais on ne ferme pas la fenêtre
+    startQuiz();
+}
+  
+  function startQuiz(){
+    const rect=quizWindow.getBoundingClientRect();
+    const cx=rect.width/2; const cy=100;
+    createNode("Avez-vous besoin d’un créatif ?", cx, cy, true);
+  }
+  </script>
 
     <script src="script.js">
     </script>
