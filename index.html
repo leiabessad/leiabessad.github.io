@@ -225,18 +225,37 @@
   let nodes = [];
   
   function createNode(text, x, y, withButtons=true){
-    const el = document.createElement('div'); el.className='node'; el.style.left=x+'px'; el.style.top=y+'px';
-    const q = document.createElement('div'); q.className='q'; q.textContent=text; el.appendChild(q);
+    const el = document.createElement('div'); 
+    el.className='node'; 
+    el.style.left=x+'px'; 
+    el.style.top=y+'px';
+
+    const q = document.createElement('div'); 
+    q.className='q'; 
+    q.innerHTML = text; // <-- innerHTML au lieu de textContent
+    el.appendChild(q);
+
     if(withButtons){
-      const btns=document.createElement('div'); btns.className='btns';
-      const yes=document.createElement('button'); yes.className='choice'; yes.textContent='Oui'; yes.onclick=()=>answer(el,'oui');
-      const no=document.createElement('button'); no.className='choice'; no.textContent='Non'; no.onclick=()=>answer(el,'non');
-      btns.appendChild(yes); btns.appendChild(no); el.appendChild(btns);
+        const btns = document.createElement('div'); 
+        btns.className='btns';
+        const yes = document.createElement('button'); 
+        yes.className='choice'; 
+        yes.textContent='Oui'; 
+        yes.onclick=()=>answer(el,'oui');
+        const no = document.createElement('button'); 
+        no.className='choice'; 
+        no.textContent='Non'; 
+        no.onclick=()=>answer(el,'non');
+        btns.appendChild(yes); 
+        btns.appendChild(no); 
+        el.appendChild(btns);
     }
+
     nodesWrap.appendChild(el);
     nodes.push({el,x,y});
     return {el,x,y};
-  }
+}
+
   
   function drawLine(x1,y1,x2,y2){
     const line=document.createElementNS('http://www.w3.org/2000/svg','line');
@@ -255,8 +274,8 @@
     let text=''; let final=false;
     if(currentStep==='q1'){if(answer==='oui'){text="Faites-vous des trucs cool ?"; currentStep='q2';} 
     else{text="Aimez-vous gagner des prix ?"; currentStep='q3';}}
-    else if(currentStep==='q2'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut.":"Je suis la personne qu’il vous faut, pour faire des trucs cool.";}
-    else if(currentStep==='q3'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut, on trouvera bien un truc à me faire faire.":"Je ne suis pas la personne qu’il vous faut.";}
+    else if(currentStep==='q2'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut.":"Je suis la personne qu’il vous faut, <br>pour faire des trucs cool.";}
+    else if(currentStep==='q3'){final=true; text=(answer==='oui')?"Je suis la personne qu’il vous faut, <br> on trouvera bien un truc à me faire faire.":"Je ne suis pas la personne qu’il vous faut.";}
   
     node.querySelectorAll('button.choice').forEach(b=>b.disabled=true);
     createNode(text,nextX,nextY,!final);
