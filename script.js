@@ -92,7 +92,7 @@
          'Dossier 9': {
         description: "INSIGHT : Toutes les bonnes choses ont une fin, même les soirées. Et qui dit fin de soirée, dit dernier verre.<br><br>IDÉE : Utiliser le verre d’eau comme cheat code pour faire durer la soirée éternellement.<br><br>EXÉCUTION : Montrer l'infinité de la soirée grâcec à une file sans fin qui alterne entre eau et cocktail.",
         type: 'Campagne Print et Activation',
-        images: ['photo/dmw/FINAL_LONG.png', 'photo/dmw/Mockup_final.png', 'photo/dmw/clean2.png', 'photo/dmw/clean2.png','photo/dmw/clean4.png'],
+        images: ['photo/dmw/FINAL_LONG.png', 'photo/dmw/mockupmetro.png', 'photo/dmw/clean2.png', 'photo/dmw/clean2.png','photo/dmw/clean4.png'],
         projectName: 'Drink More Water'  // Nom du projet
     },
 
