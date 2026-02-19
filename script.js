@@ -90,10 +90,10 @@
     },
 
          'Dossier 9': {
-        description: "Réalisation de visuels publicitaires pour la mousse bronzante Coco And Eve. Les visuels s'allignent avec la direction artistique de la marque : des couleurs fraîches et des mises en scène estivales et paradisiaques.",
-        type: 'Visuels 3D',
-        images: [ 'photo/coco/coco8.png', 'photo/coco/cocoandeve.gif'],
-        projectName: 'Coco and Eve'  // Nom du projet
+        description: "INSIGHT : Toutes les bonnes choses ont une fin, même les soirées. Et qui dit fin de soirée, dit dernier verre.<br><br>IDÉE : Utiliser le verre d’eau comme cheat code pour faire durer la soirée éternellement.<br><br>EXÉCUTION : Montrer l'infinité de la soirée grâcec à une file sans fin qui alterne entre eau et cocktail.",
+        type: 'Campagne Print et Activation',
+        images: ['photo/dmw/FINAL_LONG.png', 'photo/dmw/Mockup_final.png', 'photo/dmw/clean2.png', 'photo/dmw/clean2.png','photo/dmw/clean4.png'],
+        projectName: 'Drink More Water'  // Nom du projet
     },
 
          'Dossier 10': {
