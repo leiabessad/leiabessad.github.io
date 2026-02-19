@@ -58,7 +58,7 @@
 
 
     'Dossier 5': {
-        description: "Participation au concours Mlle Pitch 2025, dans la catégorie Communication 360. <br> Cet édition avait pour but de faire connaître et de récolter des fonds pour le Samu Social. <br> Beaucoup de personnes ont des à priori sur les sans abris : bons à rien, sans avenir, incompétents... Pourtant, 1 sans-abris sur 2 était inséré dans la vie active avant d’être en situation de précarité. Comme toute personne, les personnes sans abris possèdent des compétences, des qualités et des talents uniques qui méritent d’être reconnus. Nous avons donc inventé “Les Talentueux“, une campagne de communication qui met en lumière celles et ceux qui sont bien trop souvent passés sous silence. “Les Talentueux du Samu Social“ permet de combattre les préjugés et d'encourager les dons.",
+        description: "CONSTAT : Près de la moitié des personnes sans abris était insérée dans la vie active avant d'être en situation de précarité.<br><br>INSIGHT : 'Bon à rien', 'incompétents', 'sans avenir'. Il existe de nombreux stéréotypes dévalorisants sur les compétences des personnes sans abri. Pourtant, comme toute personne, ils possèdent des compétences, des qualités et des talents uniques qui méritent d'être reconnus. <br><br>EXÉCUTION : Afin de mettre en avant les compétences des personnes sans abris, le SAMU Social lance la campagne « Les Talentueux ». Aux travers d'ateliers animés par les sans abris ou de vidéos, le SAMU Social porte un regard optimiste et humain sur les compétences trop souvent méconnues des sans-abris et favorise le dialogue et les échanges.",
         images: ['photo/samusocial0.jpg', 'photo/samusocial1.png'],
         projectName: 'Les Talentueux',  // Nom du projet
         type: 'CAMPAGNE 360',
