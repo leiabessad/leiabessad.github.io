@@ -1,6 +1,6 @@
     const dossiers = {
     'Dossier 1': {
-        description: "INSIGHT : Toutes les “mayo” ne sont pas de véritables mayonnaises. Le terme 'mayonnaise' est protégé par la FDA : une sauce doit contenir du jaune d'œuf et au moins 65 % d’huile pour mériter cette appellation. Hellmann’s coche toutes ces cases, et pourtant son iconique 'Real Mayonnaise' se fait appeler “mayo”. <br> IDÉE : Faire prendre conscience au public de la supériorité de Hellmann's de par sa nature de 'vraie mayonnaise'. <br> EXÉCUTION : Hellmann's s'habille d'une nouvelle étiquette 'Ain't Your Mayo' et affiche les personnes qui lui ont manqué de respect afin de montrer son mécontentement.",
+        description: "INSIGHT : Toutes les “mayo” ne sont pas de véritables mayonnaises. Le terme 'mayonnaise' est protégé par la FDA : une sauce doit contenir du jaune d'œuf et au moins 65 % d’huile pour mériter cette appellation. Hellmann’s coche toutes ces cases, et pourtant son iconique 'Real Mayonnaise' se fait appeler “mayo”. <br><br>IDÉE : Faire prendre conscience au public de la supériorité de Hellmann's de par sa nature de 'vraie mayonnaise'. <br><br>EXÉCUTION : Hellmann's s'habille d'une nouvelle étiquette 'Ain't Your Mayo' et affiche les personnes qui lui ont manqué de respect afin de montrer son mécontentement.",
         images: ['photo/hellmanns/Board_1 copie.jpg', 'photo/hellmanns/Board_2 copie.jpg', 'photo/hellmanns/Board_3 copie.jpg','photo/hellmanns/Board_4 copie.jpg','photo/hellmanns/Board_5 copie.jpg', 'photo/miniature/hellmann.png'],
         type: 'ACTIVATION',
         video: 'https://youtu.be/X-5ET_ffby4', // Remplace par ton lien YouTube
@@ -19,7 +19,7 @@
     },
 
    'Dossier 3': {
-    description: "EasyJet veut remédier à sa baisse drastique des réservations de vol hors-saison, et décide de lancer une campagne sur un réseau social.\n\nPendant les périodes estivales, il y a toujours du monde et ça pose le problème de la concurrence amoureuse.\nNous avons voulu satisfaire nos jeunes célibataires connectés qui rentrent bredouille de vacances, sans avoir réussi à pécho.<br> La campagne “Easy Love Story” est en partenariat avec LE réseau social où il y a le plus de concurrence amoureuse… Tinder.<br> <br>Easy Love Story met en avant les voyages hors saison pour rencontrer votre amour de vacances en dehors des périodes touristiques, sans compétition, car finalement les meilleures vacances pour pécho sont quand les autres n’y sont pas !",
+    description: "EasyJet veut remédier à sa baisse drastique des réservations de vol hors-saison et décide de lancer une campagne sur un réseau social. <br> <br>INSIGHT : Les périodes estivales attirent beaucoup de monde, ce qui créé de la concurrence lorsqu'il s'agit de trouver un amour de vacance.<br><br>IDÉE : Les meilleures vacances pour pécho sont quand les autres n'y sont pas.<br><br>EXÉCUTION : EasyJet s'associe avec LE réseau social où il y a le plus de concurrence amoureuse… Tinder.<br>Ensemble, ils créent la campagne Easy Love Story, qui met en avant les voyages hors saison pour rencontrer votre amour de vacances sans compétition.",
     type: 'Activation',
     videos: [  
         'videos/DATECAM_easy.mp4',
